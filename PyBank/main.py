@@ -78,13 +78,13 @@ with open(csv_input, encoding="UTF-8") as csv_data:
 
 # Preparing Lines for Txt File
 
-txt_lines = ["", "Financial Analysis", "",
+txt_lines = ["Financial Analysis", "",
 			"--------------------------------------", "",
 			f"Total Months: {total_Month}", "",
 			f"Total: ${total_net}", "",
 			f"Average Change: ${avg_Change}", "",
 			f"Greatest Increase in Profits: {greatest_Increase}", "",
-			f"Greatest Decrease in Profits: {greatest_Decrease}", ""]
+			f"Greatest Decrease in Profits: {greatest_Decrease}"]
 
 # Open and write the Output Txt File with line comprehension
 
