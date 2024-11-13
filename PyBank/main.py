@@ -49,17 +49,19 @@ with open(csv_input, encoding="UTF-8") as csv_data:
 
 		months_list.append(i[0])
 	
-# Remove first list Variable and Calculate avg_Change
-
+# Remove first list Variable
 	months_list.pop(0)
 	change_list.pop(0)
+
+# Calculate avg_Change
+
 	avg_Change = round((sum(change_list)/len(change_list)),2)
 
 # Zip together the months list and change list
 
 	PL_change = list(zip(months_list,change_list))
 
-# Conditional statements inside a for loop to check and define Greatest Increase/ Decrease
+# Conditional statements inside a for loop to find and define Greatest Increase/ Decrease
 	
 	for i in PL_change:
 
@@ -74,18 +76,18 @@ with open(csv_input, encoding="UTF-8") as csv_data:
 			greatest_Decrease = f"{i[0]} (${greatest_decrease_Count})"
 
 
-# print test
+# Preparing Lines for Txt File
 
-# print("Financial Analysis")
-# print("")
-# print("--------------------------------------")
-# print("")
-# print(f"Total Months: {total_Month}")
-# print("")
-# print(f"Total: {total_net}")
-# print("")
-# print(f"Average Change: ${avg_Change}")
-# print("")
-# print(f"Greatest Increase in Profits: {greatest_Increase}")
-# print("")
-# print(f"Greatest Decrease in Profits: {greatest_Decrease}")
+txt_lines = ["", "Financial Analysis", "",
+			"--------------------------------------", "",
+			f"Total Months: {total_Month}", "",
+			f"Total: ${total_net}", "",
+			f"Average Change: ${avg_Change}", "",
+			f"Greatest Increase in Profits: {greatest_Increase}", "",
+			f"Greatest Decrease in Profits: {greatest_Decrease}"]
+
+# Open and write the Output Txt File with line comprehension
+
+with open(txt_output, "w") as txt_file:
+
+	txt_file.writelines([line + "\n" for line in txt_lines])
