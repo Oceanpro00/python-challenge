@@ -25,23 +25,23 @@ with open(csv_input, encoding="UTF-8") as csv_data:
 
 	read = csv.reader(csv_data, delimiter=",")
 
-# skip and store header
+	# skip and store header
 
 	header = next(read)
 
-# a for loop to go through all values
+	# a for loop to go through all values
 
 	for i in read:
 
-	# Calculate Total Month
+		# Calculate Total Month
 
 		total_Month += 1
 
-	# Calculate Total Net
+		# Calculate Total Net
 
 		total_net += int(i[1])
 
-	# Creates a list of all Changes and another with the months
+		# Creates a list of all Changes and another with the months
 
 		change = -(last_num - int(i[1]))
 		change_list.append(change)
@@ -49,20 +49,20 @@ with open(csv_input, encoding="UTF-8") as csv_data:
 
 		months_list.append(i[0])
 	
-# Remove first list Variable
+	# Remove first list Variable
 
 	months_list.pop(0)
 	change_list.pop(0)
 
-# Calculate avg_Change
+	# Calculate avg_Change
 
 	avg_Change = round((sum(change_list)/len(change_list)),2)
 
-# Zip together the months list and change list
+	# Zip together the months list and change list
 
 	PL_change = list(zip(months_list,change_list))
 
-# Conditional statements inside a for loop to find and define Greatest Increase/ Decrease
+	# Conditional statements inside a for loop to find and define Greatest Increase/ Decrease
 	
 	for i in PL_change:
 
@@ -76,8 +76,7 @@ with open(csv_input, encoding="UTF-8") as csv_data:
 			greatest_decrease_Count = int(i[1])
 			greatest_Decrease = f"{i[0]} (${greatest_decrease_Count})"
 
-
-# Preparing Lines for Txt File
+# Preparing Executable Text Lines for Analysis
 
 txt_lines = ["Financial Analysis", "",
 			"--------------------------------------", "",
@@ -86,6 +85,13 @@ txt_lines = ["Financial Analysis", "",
 			f"Average Change: ${avg_Change}", "",
 			f"Greatest Increase in Profits: {greatest_Increase}", "",
 			f"Greatest Decrease in Profits: {greatest_Decrease}"]
+
+# Terminal Print Out - ( print("") are for legibility )
+
+print("")
+for line in txt_lines:
+	print(line)
+print("")
 
 # Open and write the Output Txt File with line comprehension
 
