@@ -50,6 +50,7 @@ with open(csv_input, encoding="UTF-8") as csv_data:
 		months_list.append(i[0])
 	
 # Remove first list Variable
+
 	months_list.pop(0)
 	change_list.pop(0)
 
