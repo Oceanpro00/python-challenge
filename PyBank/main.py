@@ -6,9 +6,9 @@ import csv
 # File Path Designations for CSV Input and TXT Output
 
 csv_input = os.path.join("Resources", "budget_data.csv")
-txt_output = os.path.join("analysis", "PyBank Analysis.txt")
+txt_output = os.path.join("analysis", "PyBank_Analysis.txt")
 
-# Defining Variables for Data Measurements
+# Defining required Variables for Data Measurements
 
 total_Month = 0
 total_net = 0
@@ -84,7 +84,7 @@ txt_lines = ["", "Financial Analysis", "",
 			f"Total: ${total_net}", "",
 			f"Average Change: ${avg_Change}", "",
 			f"Greatest Increase in Profits: {greatest_Increase}", "",
-			f"Greatest Decrease in Profits: {greatest_Decrease}"]
+			f"Greatest Decrease in Profits: {greatest_Decrease}", ""]
 
 # Open and write the Output Txt File with line comprehension
 
