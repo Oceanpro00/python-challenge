@@ -16,6 +16,10 @@ unique_candidates = []
 votes_count = 0
 votes_counted = []
 percentage_voted = []
+winner = 0
+
+# defining required Varibable for Executables
+
 txt_lines_2 = []
 
 # Open and read the Input Csv file
@@ -56,6 +60,10 @@ with open (csv_input, encoding="UTF-8") as csv_data:
 
 		# votes_count = [votes_count += 1 for i in candidates if i == x]
 
+		if winner < votes_count:
+			winner = votes_count
+			winnername = x
+
 		# Define the votes per Candidate
 
 		votes_counted.append(votes_count)
@@ -76,13 +84,13 @@ txt_lines_1 = ["Election Results", "",
 for i in range(len(unique_candidates)):
     txt_lines_2.append(f"{unique_candidates[i]}: {percentage_voted[i]}% ({votes_counted[i]})")
 
-txt_lines_3 = ["--------------------------------------", "",
-            "Winner :"]
+txt_lines_3 = ["", "--------------------------------------", "",
+            f"Winner : {winnername}", "", "--------------------------------------",]
 
 # new function to print and add line breaks
 
 def execute_Print(x):
-
+	print("") 
 	for line in x:
 		print(line)
 	print("") 
@@ -94,3 +102,15 @@ def execute_Print(x):
 execute_Print(txt_lines_1)
 execute_Print(txt_lines_2)
 execute_Print(txt_lines_3)
+
+# Open and write the Output Txt File with line comprehension
+def output_txt(x):
+
+	txt_file.writelines([line + "\n" for line in x])
+
+
+with open(txt_output, "w") as txt_file:
+
+	output_txt(txt_lines_1)
+	output_txt(txt_lines_2)
+	output_txt(txt_lines_3)
