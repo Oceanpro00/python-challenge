@@ -24,9 +24,9 @@ Data Analysed
   - The winner of the election based on popular vote
  
 Working files -
-PyBank/ main.py
-PyPoll/ main.py
+- PyBank/ main.py
+- PyPoll/ main.py
 
 Results - 
-PyBank/ analysis/ PyBank_Analysis.txt
-PyPoll/ analysis/ PyPoll_Analysis.txt
+- PyBank/ analysis/ PyBank_Analysis.txt
+- PyPoll/ analysis/ PyPoll_Analysis.txt
