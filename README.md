@@ -22,6 +22,10 @@ Data Analysed
   - The percentage of votes each candidate won
   - The total number of votes each candidate won
   - The winner of the election based on popular vote
+
+Provided Dataset files
+- PyBank/ Resources/ budget_data.csv
+- PyPoll/ Resources/ election_data.csv
  
 Working files -
 - PyBank/ main.py
