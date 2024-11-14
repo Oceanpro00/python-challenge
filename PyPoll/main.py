@@ -13,7 +13,6 @@ txt_output = os.path.join("analysis", "PyPoll_Analysis.txt")
 total_Votes = 0
 candidates = []
 unique_candidates = []
-votes_count = 0
 votes_counted = []
 percentage_voted = []
 winner = 0
@@ -53,12 +52,14 @@ with open (csv_input, encoding="UTF-8") as csv_data:
 	for x in unique_candidates:
 	
 		# a For loop to go through and calculate the number of votes per candidate
+		
+		votes_count = 0
 
 		for i in candidates:
 			if i == x:
 				votes_count += 1
 
-		# votes_count = [votes_count += 1 for i in candidates if i == x]
+		# if conditional to find the winner number and Name
 
 		if winner < votes_count:
 			winner = votes_count
@@ -71,7 +72,7 @@ with open (csv_input, encoding="UTF-8") as csv_data:
 		# Calculate and Define the percentage voted per Candidate and reset vote counter for next Candidate
 
 		percentage_voted.append(round(((votes_count/total_Votes)*100),3))
-		votes_count = 0
+		
 	
 
 # Preparing Executable Text Lines for Analysis
@@ -87,7 +88,8 @@ for i in range(len(unique_candidates)):
 txt_lines_3 = ["", "--------------------------------------", "",
             f"Winner : {winnername}", "", "--------------------------------------",]
 
-# new function to print and add line breaks
+
+# new function to print onto Terminal cleanly  - ( print("") are for legibility )
 
 def execute_Print(x):
 	print("") 
@@ -96,14 +98,14 @@ def execute_Print(x):
 	print("") 
 
 
-
-# Terminal Print Out - ( print("") are for legibility )
+# Terminal Print Out
 
 execute_Print(txt_lines_1)
 execute_Print(txt_lines_2)
 execute_Print(txt_lines_3)
 
 # Open and write the Output Txt File with line comprehension
+
 def output_txt(x):
 
 	txt_file.writelines([line + "\n" for line in x])
